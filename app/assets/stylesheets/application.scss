@@ -31,3 +31,18 @@ footer {
 .search-input:focus {
   width: 95%;
 }
+
+a[rel=prev] {
+  margin-right: 20px;
+}
+
+.paginator > a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #F39C12;
+}
+
+.jumbotron {
+  padding: 80px 0; 
+  margin-bottom: -10px !important;
+}

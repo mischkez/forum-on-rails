@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 8b9302558088c6a1903c7af4f8417a136a96356b
+  branch: master
+  specs:
+    faker (2.7.0)
+      i18n (>= 1.6, < 1.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -82,8 +90,6 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.9.0)
-    faker (2.7.0)
-      i18n (>= 1.6, < 1.8)
     ffi (1.11.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -94,6 +100,18 @@ GEM
       ruby-vips (>= 2.0.13, < 3)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -226,9 +244,10 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
-  faker
+  faker!
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
+  kaminari
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4)
   puma (~> 4.1)
