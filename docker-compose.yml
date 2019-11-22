@@ -1,0 +1,30 @@
+version: "3"
+services:
+  db:
+    image: mariadb
+    volumes:
+      - ./tmp/db:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/forum-on-rails
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    depends_on:
+      - db
+    ports:
+      - 8181:80
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  db:
+    driver: local

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Questions</h1>
+<%= link_to 'New Question', new_question_path %>
+
+<% @questions.each do |question| %>
+  <div class="card mb-5">
+    <div class="card-header">
+      <%= link_to question.title, question %>
+    </div>
+    <div class="card-body">
+      <%= question.body %>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Edit', edit_question_path(question) %>
+      <span>|</span>
+      <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+<% end %>

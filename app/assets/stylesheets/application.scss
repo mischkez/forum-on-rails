@@ -1,0 +1,33 @@
+@import "../../../node_modules/@fortawesome/fontawesome-free/css/all";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+@import "../../../node_modules/bootswatch/dist/flatly/bootstrap.min";
+
+html {
+  position: relative;
+  min-height: 100% !important;
+}
+
+body {
+  height: 100% !important;
+}
+
+#wrap {
+  min-height: 100% !important;
+}
+
+#main {
+  min-height: 100%;
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.search-input:focus {
+  width: 95%;
+}
