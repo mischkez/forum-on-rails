@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: %i[show edit update destroy]
 
   # GET /questions
   # GET /questions.json
@@ -9,8 +9,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1
   # GET /questions/1.json
-  def show
-  end
+  def show; end
 
   # GET /questions/new
   def new
@@ -18,13 +17,13 @@ class QuestionsController < ApplicationController
   end
 
   # GET /questions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /questions
   # POST /questions.json
   def create
     @question = Question.new(question_params)
+    @question.user = current_user
 
     respond_to do |format|
       if @question.save
@@ -62,13 +61,14 @@ class QuestionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_question
-      @question = Question.with_replies.find_by slug: params[:slug]
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def question_params
-      params.fetch(:question, {}).permit(:title, :body, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_question
+    @question = Question.with_replies.find_by slug: params[:slug]
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def question_params
+    params.fetch(:question, {}).permit(:title, :body, :category_id)
+  end
 end
