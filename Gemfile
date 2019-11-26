@@ -40,7 +40,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'faker'
 
   gem 'rubocop', '~> 0.76.0', require: false
   
