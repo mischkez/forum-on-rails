@@ -19,11 +19,10 @@ COPY Gemfile.lock /forum-on-rails/Gemfile.lock
 RUN gem install bundler
 RUN bundle install
 
-
 COPY . /forum-on-rails
-RUN rails webpacker:install
 
 RUN yarn add --dev @fortawesome/fontawesome-free bootswatch jquery bootstrap popper.js
+RUN yarn install
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
